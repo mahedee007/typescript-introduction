@@ -21,7 +21,36 @@
     console.log(result2); // Output: Hello5
        
     
-    
+    // type in guard
 
+
+    type NormalUser = {
+        name: string;
+
+    }
+    
+    type AdminUser = {
+        name: string;
+        role: "admin";
+    }
+        const getUser = (user: NormalUser|AdminUser)=>{
+            if ("role" in user){
+                console.log(`he is a ${user.name} & his role is ${user.role}`);
+            }else{
+                console.log(`he is a ${user.name}`);
+            }
+        }
+
+        const person1 : NormalUser = {
+            name: 'John'
+
+        }
+        const person2 : AdminUser = {
+            name: 'John',
+            role: 'admin'
+        };
+
+        getUser(person1); // Output: he is a John
+        getUser(person2); // Output: he is a John & his role is admin
     //
 }
